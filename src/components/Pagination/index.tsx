@@ -1,9 +1,7 @@
 import { FC } from 'react';
-
-
 interface Props {
-  handleClick(page : Number) : any,
-  page: any
+  handleClick(page : Number) : void,
+  page: number
 }
 
 const Pagination : FC<Props> = ({handleClick, page, children}) => {

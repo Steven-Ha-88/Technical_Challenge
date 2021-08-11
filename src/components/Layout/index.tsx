@@ -3,8 +3,6 @@ import { FC } from 'react';
 import { useCart } from './../../lib/cartState';
 import { Product } from './../../types';
 
-
-
 const Layout: FC = ({ children }) => {
   const { cartState } = useCart();
   return (
@@ -23,7 +21,8 @@ const Layout: FC = ({ children }) => {
                 <a className="underline">Your Cart</a>
               </Link>
                 <span className="mx-1 inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
-                  {cartState.cart.reduce((acc:number, item: Product) => acc + (item.quantity || 0), 0)}</span>
+                  {cartState.cart.reduce((acc:number, item: Product) => acc + (item.quantity || 0), 0)}
+                </span>
             </li>
           </ul>
         </nav>

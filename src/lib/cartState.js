@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import shopReducer, { ADD_PRODUCT, DECREASE_QUANTITY, FETCH_TOTAL, INCREASE_QUANTITY, REMOVE_PRODUCT } from './reducer';
+import shopReducer, { ADD_PRODUCT, DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_PRODUCT } from './reducer';
 
 const LocalStateContext = createContext();
 const LocalStateProvider = LocalStateContext.Provider;
@@ -7,7 +7,6 @@ const LocalStateProvider = LocalStateContext.Provider;
 function CartStateProvider({ children }) {
   // This is our own custom provider! We will store data (state) and functionality (updaters) in here and anyone can access it via the consumer!
 
-  // const [cartOpen, setCartOpen] = useState(false);
   const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
 
   const addProductToCart = product => {

@@ -1,5 +1,4 @@
 import Layout from '../../components/Layout';
-import { useState } from 'react';
 import { useCart } from '../../lib/cartState';
 import {Product} from './../../types';
 

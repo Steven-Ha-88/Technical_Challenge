@@ -2,7 +2,6 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
-export const FETCH_TOTAL = "FETCH_TOTAL";
 
 const addProduct = (state, action) => {
   const doesItemExist = state.cart.find((item) => item.gtin === action.payload.gtin);
@@ -57,7 +56,8 @@ export default function shopReducer(state, action) {
       return increaseQuantity(state, action);
     case DECREASE_QUANTITY:
       return decreaseQuantity(state, action);
-      throw new Error();
+    default: 
+      return state;
   }
 }
 

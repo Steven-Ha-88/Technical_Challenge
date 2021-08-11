@@ -1,7 +1,6 @@
 import { Product } from "../../types";
 import { useCart } from '../../lib/cartState';
 
-
 const Card = (product : Product) => {
   const { addProductToCart } = useCart();
 
