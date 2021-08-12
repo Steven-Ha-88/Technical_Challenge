@@ -8,10 +8,10 @@ import withApollo from "next-with-apollo";
 
 const restLink = new RestLink({ uri: "http://localhost:3000/api/" });
 
-const createClient = () => {
+const createClient = ({initialState}) => {
   return new ApolloClient({
     link: restLink,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache().restore(initialState || {})
   });
 };
 

@@ -30,7 +30,8 @@ const Products = () => {
     }
   });
 
-  console.log(data);
+  console.log(data?.products, error, loading);
+
 
   const products = data?.products.results;
   // console.log("THIS IS THE DATA:", products);
