@@ -3,7 +3,7 @@ import { useCart } from '../../lib/cartState';
 import {Product} from './../../types';
 
 const CartPage = () => {
-  const { cartState, removeProductFromCart, increaseQuantity, decreaseQuantity} = useCart();
+  const { cartState, removeProductFromCart, increaseQuantity, decreaseQuantity } = useCart();
   
   const grandTotal = () => {
     if(!cartState.cart.length) return 0;
