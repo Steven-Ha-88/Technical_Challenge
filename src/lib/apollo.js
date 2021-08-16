@@ -3,16 +3,13 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { RestLink } from 'apollo-link-rest';
-import { getDataFromTree } from "@apollo/react-ssr";
-import withApollo from "next-with-apollo";
+
 
 const restLink = new RestLink({ uri: "http://localhost:3000/api/" });
 
-const createClient = ({initialState}) => {
-  return new ApolloClient({
+const createClient = new ApolloClient({
     link: restLink,
-    cache: new InMemoryCache().restore(initialState || {})
+    cache: new InMemoryCache()
   });
-};
 
-export default withApollo(createClient, {getDataFromTree});
+export default createClient;

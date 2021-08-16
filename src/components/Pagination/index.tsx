@@ -1,10 +1,12 @@
 import { FC } from 'react';
+import { useRouter } from "next/router";
 interface Props {
   handleClick(page : Number) : void,
   page: number
 }
 
 const Pagination : FC<Props> = ({handleClick, page, children}) => {
+  const router = useRouter();
   return (
     <>
       <div className="flex justify-evenly m-8">        
