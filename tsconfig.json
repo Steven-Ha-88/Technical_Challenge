@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/lib/cartState.js"  ],
+, "src/lib/cartState.js", "src/lib/apollo.js"  ],
   "exclude": [
     "node_modules"
   ]

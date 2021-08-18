@@ -1,7 +1,7 @@
 import { Product } from './../../types';
 import Card from './../ProductCard';
 
-const Products = ({data, loading, error}:any) => {
+const Products = ({data, loading, error} : any) => {
 
   const products = data.products.results;
 

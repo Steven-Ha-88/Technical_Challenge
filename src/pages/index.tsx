@@ -2,6 +2,7 @@ import Layout from '../components/Layout';
 import Products from '../components/Products';
 import gql from 'graphql-tag';
 import client from "../lib/apollo";
+import {useState} from 'react';
 import Pagination from '../components/Pagination';
 import { useRouter } from "next/router";
 import { useQuery } from '@apollo/client';
@@ -24,13 +25,16 @@ query  ALL_PRODUCTS_QUERY($page: Int = 0) {
 }
 `
 
-const HomePage = ({data, loading, error}: any) => {
+const HomePage = () => {
+  const [page, setPage] = useState(1);
   
-  const page = data.products.page;
-  const router = useRouter();
+  //fetch data
+  const {data, loading, error} = useQuery(ALL_PRODUCTS_QUERY, {
+    variables: { page }
+  })
 
   const handleClick = (page: number) => {
-    router.push(`?page=${page}`);
+    setPage(page);
     window.scrollTo({top: 0});
   } 
 
@@ -52,17 +56,15 @@ const HomePage = ({data, loading, error}: any) => {
 
 
 export async function getServerSideProps({query : {page = 1}}) {
-  const { data, loading, error } = await client.query({
+  //cache data first
+  await client.query({
     query: ALL_PRODUCTS_QUERY,
-    variables: { page }   
-  });
+    variables: { page }, 
+    fetchPolicy: 'cache-first'   
+  });  
 
   return {
-    props: {
-      data,
-      loading,
-      error: error || null,
-    },
+    props: {},
  };
 }
 
